@@ -1,4 +1,6 @@
-master:
+version: '3.7'
+services:
+ jenkins:
   build: .
   environment:
     JAVA_OPTS: "-Djava.awt.headless=true"

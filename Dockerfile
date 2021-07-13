@@ -73,11 +73,15 @@ EXPOSE ${http_port}
 EXPOSE ${agent_port}
 
 ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
+COPY jenkins.service /etc/systemd/system/
+COPY jenkins /etc/init.d/
+RUN  chmod +x /etc/init.d/jenkins
 
 USER ${user}
 #USER root
 COPY jenkins-support /usr/local/bin/jenkins-support
 COPY jenkins.sh /usr/local/bin/jenkins.sh
+
 
 ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/jenkins.sh"]
 
@@ -121,5 +125,6 @@ RUN /usr/local/bin/install-plugins.sh ldap
 # install Notifications and Publishing plugins
 RUN /usr/local/bin/install-plugins.sh email-ext
 RUN /usr/local/bin/install-plugins.sh mailer
-RUN systemctl start jenkins.service
+
+RUN service jenkins restart
 
