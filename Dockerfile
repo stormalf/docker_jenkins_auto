@@ -121,5 +121,5 @@ RUN /usr/local/bin/install-plugins.sh ldap
 # install Notifications and Publishing plugins
 RUN /usr/local/bin/install-plugins.sh email-ext
 RUN /usr/local/bin/install-plugins.sh mailer
-
+RUN systemctl start jenkins.service
 
