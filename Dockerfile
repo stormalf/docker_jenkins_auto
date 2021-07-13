@@ -44,12 +44,15 @@ COPY init.groovy /usr/share/jenkins/ref/init.groovy.d/init.groovy
 #COPY init.groovy /usr/share/jenkins/ref/init.groovy.d/init.groovy.override
 # jenkins version being bundled in this docker image
 ARG JENKINS_VERSION
-ENV JENKINS_VERSION ${JENKINS_VERSION:-2.235.1}
+#ENV JENKINS_VERSION ${JENKINS_VERSION:-2.235.1}
+ENV JENKINS_VERSION ${JENKINS_VERSION:-2.302}
 
 # jenkins.war checksum, download will be validated using it
 #ARG JENKINS_SHA=2d71b8f87c8417f9303a73d52901a59678ee6c0eefcf7325efed6035ff39372a
-ARG JENKINS_SHA=6375eb3a09bfde4c1fb3a7296985e225bfe2007153990a8b587e3f5f926f675d
-#ARG JENKINS_SHA=49d0c8961d13fb9505df8c2bb4aa70581dad99aba581f1d39a0051225d7da338
+#SHA_256 below for version 2.235.1
+#ARG JENKINS_SHA=6375eb3a09bfde4c1fb3a7296985e225bfe2007153990a8b587e3f5f926f675d
+#SHA_256 for version 2.302
+ARG JENKINS_SHA=49d0c8961d13fb9505df8c2bb4aa70581dad99aba581f1d39a0051225d7da338
 
 # Can be used to customize where jenkins.war get downloaded from
 ARG JENKINS_URL=https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/${JENKINS_VERSION}/jenkins-war-${JENKINS_VERSION}.war
