@@ -4,10 +4,11 @@ import com.cloudbees.plugins.credentials.*
 import com.cloudbees.plugins.credentials.common.*
 import com.cloudbees.plugins.credentials.domains.*
 import com.cloudbees.jenkins.plugins.sshcredentials.impl.*
-import hudson.plugins.sshslaves.*;
+import hudson.plugins.sshslaves.*
 import hudson.model.*
 import jenkins.model.*
 import hudson.security.*
+import jenkins.install.*
 
 global_domain = Domain.global()
 credentials_store =
