@@ -5,7 +5,9 @@ Please update the init.groovy with your user account and password to create inst
 if you need other jenkins version please update the Dockerfile : 
 ENV JENKINS_VERSION ${JENKINS_VERSION:-2.302}
 and don't forget to update with correct sha-256 for the jenkins.war 
+
 # to build the docker image and run it
 docker-compose up
 
-
+# troubleshooting
+Some plugins are partially installed and need to be installed and restarted at the first connection
